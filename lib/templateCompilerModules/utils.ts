@@ -62,13 +62,10 @@ export function urlToRequire(
 function parseUriParts(urlString: string): UrlWithStringQuery {
   // initialize return value
   const returnValue: UrlWithStringQuery = uriParse('')
-  if (urlString) {
-    // A TypeError is thrown if urlString is not a string
-    // @see https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost
-    if ('string' === typeof urlString) {
-      // check is an uri
-      return uriParse(urlString) // take apart the uri
-    }
+  // A TypeError is thrown if urlString is not a string
+  // @see https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost
+  if (urlString && 'string' === typeof urlString) {
+    return uriParse(urlString) // take apart the uri
   }
   return returnValue
 }
