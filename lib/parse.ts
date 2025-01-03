@@ -56,7 +56,9 @@ export function parse(options: ParseOptions): SFCDescriptor {
     filename + source + JSON.stringify(compilerParseOptions)
   )
   let output: SFCDescriptor = cache.get(cacheKey)
-  if (output) return output
+  if (output) {
+    return output
+  }
   output = compiler.parseComponent(source, compilerParseOptions)
   if (needMap) {
     if (output.script && !output.script.src) {

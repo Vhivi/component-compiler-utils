@@ -81,7 +81,9 @@ const less = {
       }
     )
 
-    if (error) return { code: '', errors: [error] }
+    if (error) {
+      return { code: '', errors: [error] }
+    }
 
     if (map) {
       return {
@@ -106,7 +108,9 @@ const styl = {
     try {
       const ref = nodeStylus(source)
       Object.keys(options).forEach(key => ref.set(key, options[key]))
-      if (map) ref.set('sourcemap', { inline: false, comment: false })
+      if (map) {
+        ref.set('sourcemap', { inline: false, comment: false })
+      }
 
       const result = ref.render()
       if (map) {

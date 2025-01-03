@@ -87,12 +87,16 @@ function preprocess(
     source,
     finalPreprocessOptions,
     (_err: Error | null, _res: string) => {
-      if (_err) err = _err
+      if (_err) {
+        err = _err
+      }
       res = _res
     }
   )
 
-  if (err) throw err
+  if (err) {
+    throw err
+  }
   return res
 }
 
