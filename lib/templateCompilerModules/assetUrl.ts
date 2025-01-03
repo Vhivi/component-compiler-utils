@@ -65,7 +65,7 @@ function rewrite(
   transformAssetUrlsOption?: TransformAssetUrlsOptions
 ) {
   if (attr.name === name) {
-    const value = attr.value
+    const { value } = attr
     // only transform static URLs
     if (value.charAt(0) === '"' && value.charAt(value.length - 1) === '"') {
       attr.value = urlToRequire(value.slice(1, -1), transformAssetUrlsOption)

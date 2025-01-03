@@ -27,7 +27,7 @@ function transform(
     node.attrs.forEach(attr => {
       if (attr.name === 'srcset') {
         // same logic as in transform-require.js
-        const value = attr.value
+        const { value } = attr
         const isStatic =
           value.charAt(0) === '"' && value.charAt(value.length - 1) === '"'
         if (!isStatic) {
